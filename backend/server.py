@@ -189,8 +189,10 @@ def download_video_sync(url: str, format_id: str, output_path: str) -> str:
     
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-            return output_path
+            info = ydl.extract_info(url, download=True)
+            # Get the actual downloaded filename
+            actual_filename = ydl.prepare_filename(info)
+            return actual_filename
     except Exception as e:
         raise Exception(f"Failed to download video: {str(e)}")
 
