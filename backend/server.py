@@ -147,7 +147,24 @@ async def get_video_info(request: VideoInfoRequest):
                     seen_resolutions.add(resolution)
         
         # Sort by quality (height)
-        formats.sort(key=lambda x: int(x.resolution.replace('p', '').replace('unknown', '0')) if x.resolution else 0, reverse=True)
+        def get_resolution_height(format_obj):
+            if not format_obj.resolution:
+                return 0
+            resolution = format_obj.resolution
+            try:
+                # Handle formats like "720p"
+                if 'p' in resolution:
+                    return int(resolution.replace('p', ''))
+                # Handle formats like "256x144"
+                elif 'x' in resolution:
+                    return int(resolution.split('x')[1])
+                # Handle "unknown" or other formats
+                else:
+                    return 0
+            except (ValueError, IndexError):
+                return 0
+        
+        formats.sort(key=get_resolution_height, reverse=True)
         
         return VideoInfoResponse(
             title=info.get('title', 'Unknown'),
