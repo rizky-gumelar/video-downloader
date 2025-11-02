@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-02T01:56:50.108984",
-  "total_tests": 7,
-  "passed_tests": 5,
-  "success_rate": "71.4%",
+  "timestamp": "2025-11-02T01:57:37.287661",
+  "total_tests": 8,
+  "passed_tests": 7,
+  "success_rate": "87.5%",
   "test_details": [
     {
       "test": "API Root",
@@ -12,22 +12,27 @@
     {
       "test": "POST Status Check",
       "success": true,
-      "details": "POST Status: 200, ID: e205cd00-4498-4524-bb86-6544f346db0b"
+      "details": "POST Status: 200, ID: 9eae3b0c-345a-4482-9b4d-150f02992a80"
     },
     {
       "test": "GET Status Check",
       "success": true,
-      "details": "GET Status: 200, Count: 1"
+      "details": "GET Status: 200, Count: 2"
     },
     {
       "test": "Video Info Test 1",
-      "success": false,
-      "details": "Status: 400, Error: invalid literal for int() with base 10: '256x144'"
+      "success": true,
+      "details": "Status: 200, Title: 'Rick Astley - Never Gonna Give You Up (Official Vi...', Formats: 9, Duration: 213s"
     },
     {
-      "test": "Video Info Test 2",
+      "test": "Video Download",
+      "success": true,
+      "details": "Status: 200, Download ID: ad6794ef-f85c-48d8-bbb6-aef3d58a3431, Filename: ad6794ef-f85c-48d8-bbb6-aef3d58a3431.%(ext)s, Status: completed"
+    },
+    {
+      "test": "File Serving",
       "success": false,
-      "details": "Status: 400, Error: invalid literal for int() with base 10: '256x144'"
+      "details": "Status: 404, Error: File not found or server error"
     },
     {
       "test": "Invalid URL Handling",
