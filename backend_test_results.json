@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-02T01:57:37.287661",
+  "timestamp": "2025-11-02T01:58:45.313843",
   "total_tests": 8,
-  "passed_tests": 7,
-  "success_rate": "87.5%",
+  "passed_tests": 8,
+  "success_rate": "100.0%",
   "test_details": [
     {
       "test": "API Root",
@@ -12,12 +12,12 @@
     {
       "test": "POST Status Check",
       "success": true,
-      "details": "POST Status: 200, ID: 9eae3b0c-345a-4482-9b4d-150f02992a80"
+      "details": "POST Status: 200, ID: 0df60aa2-b06d-4fea-9ceb-5975c3ae4b98"
     },
     {
       "test": "GET Status Check",
       "success": true,
-      "details": "GET Status: 200, Count: 2"
+      "details": "GET Status: 200, Count: 3"
     },
     {
       "test": "Video Info Test 1",
@@ -27,12 +27,12 @@
     {
       "test": "Video Download",
       "success": true,
-      "details": "Status: 200, Download ID: ad6794ef-f85c-48d8-bbb6-aef3d58a3431, Filename: ad6794ef-f85c-48d8-bbb6-aef3d58a3431.%(ext)s, Status: completed"
+      "details": "Status: 200, Download ID: 3901b07b-d9ca-44bc-b1e9-8737742b98cb, Filename: 3901b07b-d9ca-44bc-b1e9-8737742b98cb.webm, Status: completed"
     },
     {
       "test": "File Serving",
-      "success": false,
-      "details": "Status: 404, Error: File not found or server error"
+      "success": true,
+      "details": "Status: 200, Size: 358564006 bytes, Type: application/octet-stream"
     },
     {
       "test": "Invalid URL Handling",
