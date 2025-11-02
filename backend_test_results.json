@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-11-02T01:56:50.108984",
+  "total_tests": 7,
+  "passed_tests": 5,
+  "success_rate": "71.4%",
+  "test_details": [
+    {
+      "test": "API Root",
+      "success": true,
+      "details": "Status: 200, Response: {'message': 'VidSaver API'}"
+    },
+    {
+      "test": "POST Status Check",
+      "success": true,
+      "details": "POST Status: 200, ID: e205cd00-4498-4524-bb86-6544f346db0b"
+    },
+    {
+      "test": "GET Status Check",
+      "success": true,
+      "details": "GET Status: 200, Count: 1"
+    },
+    {
+      "test": "Video Info Test 1",
+      "success": false,
+      "details": "Status: 400, Error: invalid literal for int() with base 10: '256x144'"
+    },
+    {
+      "test": "Video Info Test 2",
+      "success": false,
+      "details": "Status: 400, Error: invalid literal for int() with base 10: '256x144'"
+    },
+    {
+      "test": "Invalid URL Handling",
+      "success": true,
+      "details": "Status: 400 (expected 400)"
+    },
+    {
+      "test": "Missing File Handling",
+      "success": true,
+      "details": "Status: 404 (expected 404)"
+    }
+  ]
+}
