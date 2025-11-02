@@ -60,12 +60,15 @@ function App() {
         format_id: selectedFormat
       });
       
-      const downloadUrl = `${API}/video/file/${response.data.filename}`;
-      setDownloadLink(downloadUrl);
-      toast.success("Video ready for download!");
+      setDownloadLink({
+        url: response.data.download_url,
+        title: response.data.title,
+        ext: response.data.ext
+      });
+      toast.success("Download link ready!");
     } catch (error) {
-      console.error("Error downloading video:", error);
-      toast.error(error.response?.data?.detail || "Failed to download video");
+      console.error("Error getting download link:", error);
+      toast.error(error.response?.data?.detail || "Failed to get download link");
     } finally {
       setDownloading(false);
     }
@@ -189,12 +192,12 @@ function App() {
                   {downloading ? (
                     <>
                       <Loader2 className="animate-spin" size={20} />
-                      <span>Downloading...</span>
+                      <span>Preparing...</span>
                     </>
                   ) : (
                     <>
                       <Download size={20} />
-                      <span>Download Video</span>
+                      <span>Get Download Link</span>
                     </>
                   )}
                 </Button>
@@ -203,10 +206,12 @@ function App() {
                   <div className="download-success" data-testid="download-success">
                     <CheckCircle className="success-icon" size={24} />
                     <div className="success-content">
-                      <p className="success-text">Your video is ready!</p>
+                      <p className="success-text">Your download link is ready!</p>
                       <a
-                        href={downloadLink}
-                        download
+                        href={downloadLink.url}
+                        download={`${downloadLink.title}.${downloadLink.ext}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="download-link"
                         data-testid="download-link"
                       >
